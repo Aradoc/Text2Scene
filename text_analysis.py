@@ -4,6 +4,7 @@
           -https://docs.python.org/3/library/xml.etree.elementtree.html
           -https://stackoverflow.com/questions/5316206/converting-dot-to-png-in-python/5316307
 """
+# import graphviz
 import graphviz
 import matplotlib.pyplot as plt
 import tkinter as tk
@@ -12,14 +13,14 @@ import prettytable
 # import tempfile
 # import image
 
-import pydot
+# import pydot
 import spacy
 
 from xml.etree import cElementTree as ET
 # from subprocess import check_call
 from collections import Counter
 from tkinter import filedialog
-from graphviz import dot
+# from graphviz import dot
 
 
 # from PIL import Image
@@ -198,6 +199,7 @@ def visualization(location):
         f.write(str(i) + ' -> ' + str(j) + ' [label="' + str(k) + '"];' + '\n')
     f.write("}")
 
+    print(graphviz.Graph())
     # graph = pydot.graph_from_dot_file(location + '\\graph.dot')
     # graph = pydot.graph_from_dot_file(location + '\\graph.dot')
     # graph = graphviz.Source.from_file('graph.dot', location)
@@ -255,6 +257,11 @@ if __name__ == '__main__':
     print(output_iso)
     print(output_qsl)
     print(output_mtn)
+
+    prep = prepositions()
+    print('QsLinks prepositions', prep[0])
+    print('Olinks prepositions', prep[1])
+    print('All prepositions', prep[2])
 
     sentence_length()
 
